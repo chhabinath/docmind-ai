@@ -3,6 +3,8 @@ from pathlib import Path
 from pypdf import PdfReader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
+from app.core.config import settings
+
 class PDFPreprocessor:
 
     @staticmethod
@@ -28,7 +30,7 @@ class PDFPreprocessor:
     def split_text(text: str):
         
         splitter = RecursiveCharacterTextSplitter(
-            chunk_size = 1000,
+            chunk_size = settings.chunk_size,
             chunk_overlap=200
         )
         return splitter.split_text(text)

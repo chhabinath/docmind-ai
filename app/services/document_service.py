@@ -1,7 +1,9 @@
 from pathlib import Path
 import shutil
 
-UPLOAD_DIR = Path("uploads")
+from app.core.config import settings
+
+UPLOAD_DIR = Path(settings.upload_dir)
 UPLOAD_DIR.mkdir(exist_ok=True)
 
 class DocumentService:

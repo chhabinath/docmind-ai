@@ -2,11 +2,13 @@ from langchain_ollama import OllamaEmbeddings
 
 from app.embeddings.base import EmbeddingService
 
+from app.core.config import settings
+
 class OllamaEmbedding(EmbeddingService):
 
     def __init__(self):
         self.model = OllamaEmbeddings(
-            model = "nomic-embed-text"
+            model = settings.embedding_model
         )
 
     def embed_query(self, query: str) -> list[float]:
